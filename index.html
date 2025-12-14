@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salaria - Salary Management System</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <i class="ph-fill ph-wallet"></i>
+                </div>
+                <h2>Salaria</h2>
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-item active" data-view="dashboard">
+                    <i class="ph ph-squares-four"></i>
+                    <span data-i18n="nav_dashboard">Дашборд</span>
+                </button>
+                <button class="nav-item" data-view="my-salary">
+                    <i class="ph ph-money"></i>
+                    <span data-i18n="nav_my_salary">Моя зарплата</span>
+                </button>
+                <button class="nav-item admin-only" data-view="employees">
+                    <i class="ph ph-users"></i>
+                    <span data-i18n="nav_employees">Сотрудники</span>
+                </button>
+                <button class="nav-item" data-view="analytics">
+                    <i class="ph ph-chart-line-up"></i>
+                    <span data-i18n="nav_analytics">Аналитика</span>
+                    <span class="badge">AI</span>
+                </button>
+                <button class="nav-item" data-view="settings">
+                    <i class="ph ph-gear"></i>
+                    <span data-i18n="nav_settings">Настройки</span>
+                </button>
+            </nav>
+
+            <div class="user-profile-mini">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=random" alt="User" id="user-avatar-mini">
+                <div class="user-info">
+                    <p class="user-name" id="user-name-mini">Alex Admin</p>
+                    <p class="user-role" id="user-role-mini">Administrator</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="header-title">
+                    <h1 id="page-title">Обзор зарплат</h1>
+                    <p id="current-date">Март 2024</p>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="month-selector">
+                        <button class="icon-btn" id="prev-month"><i class="ph ph-caret-left"></i></button>
+                        <span id="selected-month-display">Март 2024</span>
+                        <button class="icon-btn" id="next-month"><i class="ph ph-caret-right"></i></button>
+                    </div>
+
+                    <button class="icon-btn" id="theme-toggle" title="Toggle Theme">
+                        <i class="ph ph-moon"></i>
+                    </button>
+                    
+                    <button class="icon-btn" id="lang-toggle" title="Switch Language">
+                        <span>RU</span>
+                    </button>
+
+                    <div class="user-menu-trigger">
+                         <!-- Role Switcher for Hackathon Demo -->
+                        <select id="demo-role-switcher" class="demo-select">
+                            <option value="admin">Admin View</option>
+                            <option value="hr">HR View</option>
+                            <option value="employee">Employee View</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+
+            <div id="app-view-container" class="view-container">
+                <!-- Views will be injected here by JS -->
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
